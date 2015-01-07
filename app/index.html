@@ -21,7 +21,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+	<div ng-include="'views/nav.html'"></div>
+	<div class="container" ng-view=""></div>
+    <!--<div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
@@ -36,7 +38,7 @@
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
-    </div>
+    </div>--!>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -75,10 +77,15 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-		<script src="scripts/controllers/posts.js"></script>
-		<script src="scripts/services/post.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+	<script src="scripts/app.js"></script>
+	<script src="scripts/controllers/posts.js"></script>
+	<script src="scripts/controllers/postview.js"></script>
+	<script src="scripts/controllers/nav.js"></script>
+	<script src="scripts/services/post.js"></script>
+	<script src="scripts/filters/url.js"></script>
+	<script src="scripts/controllers/auth.js"></script>
+	<script src="scripts/services/auth.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
