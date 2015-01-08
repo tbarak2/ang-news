@@ -12,26 +12,24 @@ app.factory('Post', function ($firebase, FIREBASE_URL) {
   var Post = {
     all: posts,
     create: function (post) {
-      return posts.$add(post).then(function(postRef){
-	   $firebase(ref.child('user_posts').child(post.creatorUID))
-						.$push(postRef.name());
+      return posts.$add(post).then(function(postRef) {
+		$firebase(ref.child('user_posts').child(post.creatorUID)).$push(postRef.name());
 		return postRef;
 		});
     },
     get: function (postId) {
-	var test = $firebase(ref.child('posts').child(postId)).$asObject();
-	//console.debug(test);
-      return test;//$firebase(ref.child('posts').child(postId)).$asObject();
+      return $firebase(ref.child('posts').child(postId)).$asObject();
     },
     delete: function (post) {
       return posts.$remove(post);
     }
   };
-  return Post;
 
+  return Post;
+});
   /*var ref = new Firebase(FIREBASE_URL);
   var posts = $firebase(ref.child('posts')).$asArray();*/
-});
+
 
 /*function ($firebase, FIREBASE_URL) {
   var ref = new Firebase(FIREBASE_URL);
