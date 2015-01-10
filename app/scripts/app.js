@@ -48,6 +48,10 @@ var app = angular
 		}
 	  }
 	})
+	.when('/users/:userId', {
+	  templateUrl: 'views/profile.html',
+	  controller: 'ProfileCtrl'
+	})
     /*.when('/login', {
 	  templateUrl: 'views/login.html',
 	  controller: 'AuthCtrl',
